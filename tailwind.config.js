@@ -6,6 +6,7 @@ module.exports = {
       width: {
         17: '4.375rem',
         25: '6.25rem',
+        57: '14.6875rem',
       },
       height: {
         17: '4.375rem',
@@ -25,6 +26,8 @@ module.exports = {
       colors: {
         light_purple: '#8C52FF',
         grey_descr: '#7C7C7C',
+        yellow_descr: '#FFEB3C',
+        blue_descr: '#039BE6',
       },
       boxShadow: {
         'shadow-dark': '4px 4px 0px 0px #000000',
