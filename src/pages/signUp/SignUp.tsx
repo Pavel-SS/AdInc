@@ -9,12 +9,13 @@ import * as Yup from 'yup';
 
 import arrowIcon from '../../assets/svg/arrow_left.svg';
 import varningIcon from '../../assets/svg/mdi_warning-circle.svg';
+import bg from '../../assets/svg/signupBg.svg';
 import { Button } from '../../common/Button/Button';
 import { InputText } from '../../common/Input/InputText';
 
 import s from './signup.module.scss';
 
-const Schema = Yup.object().shape({
+export const Schema = Yup.object().shape({
   name: Yup.string().required('Name field is required'),
   email: Yup.string().email().required('E-mail field is required'),
   password: Yup.string()
@@ -43,10 +44,17 @@ const descrText =
 export const SignUp = () => {
   return (
     <div className="mx-auto max-w-7xl px-6 mt-7xl">
-      <Link to="/" className="flex gap-4 mb-13">
-        <img src={arrowIcon} alt="pic" />
-        <span className="underline">Главная</span>
-      </Link>
+      <div
+        className="absolute top-0 bottom-0 
+        left-0 right-0 bg-contain bg-no-repeat bg-bottom -z-20"
+        style={{ backgroundImage: `url(${bg})` }}
+      />
+      <div className="w-32">
+        <Link to="/" className="flex gap-4 mb-13">
+          <img src={arrowIcon} alt="pic" />
+          <span className="underline">Главная</span>
+        </Link>
+      </div>
       <Formik
         initialValues={{
           email: '',
@@ -60,7 +68,9 @@ export const SignUp = () => {
         {({ values, errors, handleSubmit, handleChange, handleBlur }) => {
           return (
             <form className="flex flex-col w-[39.375rem] mx-auto" onSubmit={handleSubmit}>
-              <h2 className={`text-5xl font-bold text-light_purple mb-10 ${s.title}`}>
+              <h2
+                className={`text-left text-5xl font-bold text-light_purple mb-10 ${s.title}`}
+              >
                 Регистрация
               </h2>
               {(errors.email ||

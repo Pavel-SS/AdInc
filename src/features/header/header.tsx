@@ -10,7 +10,7 @@ import logoAD from '../../assets/svg/logo_AD.svg';
 
 export const Header = () => {
   return (
-    <Popover className="relative border-b border-black">
+    <Popover className="relative border-b border-black z-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between py-3.5 md:justify-start md:space-x-10">
           <Link
