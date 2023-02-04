@@ -7,6 +7,7 @@ import { Home } from './pages/home/Home';
 import { Main } from './pages/main/Main';
 import { SignIn } from './pages/signIn/SignIn';
 import { SignUp } from './pages/signUp/SignUp';
+import '@fontsource/montserrat';
 
 const App = () => {
   const routes = useRoutes([

@@ -1,0 +1,21 @@
+.container{
+    position: relative;
+    display: inline-block;
+}
+.eye{
+    position: absolute;
+    top: 0%;
+    left: calc(100% - 36px);
+    transform: translate(-50%, 0%);
+    width: 24px;
+    height: 24px;
+    margin: 18px 0;
+
+    &_open {
+        background: url(./../../assets/svg/eye_open.svg) 50% 50% no-repeat;
+    }
+
+    &_close {
+        background: url(./../../assets/svg/eye_close.svg) 50% 50% no-repeat;
+    }
+}
