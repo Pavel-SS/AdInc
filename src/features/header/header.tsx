@@ -6,9 +6,15 @@ import { Popover, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
 import logoAD from '../../assets/svg/logo_AD.svg';
 
 export const Header = () => {
+  const { active } = useAppSelector((state: RootState) => state.active);
+
+  console.log(active);
+
   return (
     <Popover className="relative border-b border-black z-20">
       <div className="mx-auto max-w-7xl px-6">
