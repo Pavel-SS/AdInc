@@ -44,12 +44,26 @@ const descrText =
 export const SignUp = () => {
   return (
     <div
-      className="mx-auto max-w-7xl px-6 mt-7xl
-    bg-contain bg-fixed bg-no-repeat bg-bottom bg-[url('/src/assets/img/bg.png')]
-    "
+      className="mx-auto max-w-7xl px-6 mt-7xl h-auto
+     lg:bg-no-repeat lg:bg-bottom lg:bg-[url('/src/assets/svg/signupBg.svg')] lg:bg-fixed lg:bg-contain
+    lg:h-[100vh]
+    md:h-auto
+     "
     >
+      {/* <div
+        className="absolute top-0 bottom-0
+        left-0 right-0 bg-contain bg-no-repeat bg-bottom -z-20"
+        style={{ backgroundImage: `url(${bg})` }}
+      /> */}
+      <div
+        className="absolute top-0 bottom-0
+        left-0 right-0 bg-contain bg-no-repeat  bg-fixed bg-bottom -z-20
+        bg-[url('/src/assets/svg/signupBg.svg')]
+        lg:hidden"
+        // style={{ backgroundImage: `url(${bg})` }}
+      />
       <div className="w-32">
-        <Link to="/" className="flex gap-4 mb-13 sm:mb-6">
+        <Link to="/" className="flex gap-4 mb-3 sm:mb-6">
           <img src={arrowIcon} alt="pic" />
           <span className="underline">Главная</span>
         </Link>
@@ -67,8 +81,8 @@ export const SignUp = () => {
         {({ values, errors, handleSubmit, handleChange, handleBlur }) => {
           return (
             <form
-              className="flex flex-col  w-[39.375rem]
-              md:w-[25.375rem] md: pb-[9rem]
+              className="flex flex-col  w-[39.375rem] pb-0
+              md:w-[25.375rem] md:pb-[9rem]
               sm:w-[15.375rem]  mx-auto "
               onSubmit={handleSubmit}
             >
@@ -124,7 +138,13 @@ export const SignUp = () => {
                 className="mb-6 w-full border-2 border-light_purple rounded-lg text-base py-4 pl-6 shadow-shadow-dark"
                 visibilityPassword
               />
-              <p className="text-start text-grey_descr text-sm mb-10">{descrText}</p>
+              <div className="flex items-start">
+                <input
+                  type="checkbox"
+                  className=" appearance-none cursor-pointer  h-5 w-5 border-2 w rounded pr-5 pb-5  mr-5 mt-1 checked:bg-light_purple "
+                />
+                <p className="text-start text-grey_descr text-sm mb-10">{descrText}</p>
+              </div>
               <div className="flex justify-center items-center md:flex-col">
                 <Button
                   type="submit"
@@ -133,10 +153,12 @@ export const SignUp = () => {
                   btnName="Получить ссылку"
                 />
                 <div className="flex items-center md:mt-10">
-                  <span className="mr-4 ">Уже есть аккаунт?</span>
+                  <span className="mr-4 cursor-pointer  hover:text-purple-700  transition-color duration-300  ">
+                    Уже есть аккаунт?
+                  </span>
                   <Link
                     to="/signin"
-                    className="underline text-light_purple hover:text-purple-700 font-semibold"
+                    className="underline text-light_purple font-semibold transition-color duration-300  hover:text-purple-700 "
                   >
                     Войти
                   </Link>
