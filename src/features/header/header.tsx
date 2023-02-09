@@ -23,18 +23,18 @@ export const Header = () => {
             to="/"
             className="flex justify-start items-center gap-2 sm:gap-4 py-px lg:w-0 lg:flex-1"
           >
-            <img className="h-10 w-auto float-left sm:h-17" src={logoAD} alt="" />
+            <img className="h-10 w-auto float-left sm:h-17" src={logoAD} alt="logo" />
             <h1 className="inline-block text-2xl sm:text-2.5xl sm:leading-[2.125rem] font-bold">
               AD. Incubator
             </h1>
           </Link>
-          <div className="-my-2 -mr-2 md:hidden">
+          <div className="-my-2 -mr-2  hidden  md:block">
             <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
-          <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+          {/* <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
             <Link
               to="/signin"
               className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -47,7 +47,7 @@ export const Header = () => {
             >
               Sign up
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export const Header = () => {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
+          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition hidden md:block"
         >
           <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
             <div className="px-5 pt-5 pb-6">

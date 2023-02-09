@@ -43,14 +43,13 @@ const descrText =
 
 export const SignUp = () => {
   return (
-    <div className="mx-auto max-w-7xl px-6 mt-7xl">
-      <div
-        className="absolute top-0 bottom-0 
-        left-0 right-0 bg-contain bg-no-repeat bg-bottom -z-20"
-        style={{ backgroundImage: `url(${bg})` }}
-      />
+    <div
+      className="mx-auto max-w-7xl px-6 mt-7xl
+    bg-contain bg-fixed bg-no-repeat bg-bottom bg-[url('/src/assets/img/bg.png')]
+    "
+    >
       <div className="w-32">
-        <Link to="/" className="flex gap-4 mb-13">
+        <Link to="/" className="flex gap-4 mb-13 sm:mb-6">
           <img src={arrowIcon} alt="pic" />
           <span className="underline">Главная</span>
         </Link>
@@ -67,9 +66,15 @@ export const SignUp = () => {
       >
         {({ values, errors, handleSubmit, handleChange, handleBlur }) => {
           return (
-            <form className="flex flex-col w-[39.375rem] mx-auto" onSubmit={handleSubmit}>
+            <form
+              className="flex flex-col  w-[39.375rem]
+              md:w-[25.375rem] md: pb-[9rem]
+              sm:w-[15.375rem]  mx-auto "
+              onSubmit={handleSubmit}
+            >
               <h2
-                className={`text-left text-5xl font-bold text-light_purple mb-10 ${s.title}`}
+                className={`text-lefttext-light_purple font-bold mb-10 text-5xl ${s.title}
+                sm:text-3xl`}
               >
                 Регистрация
               </h2>
@@ -120,19 +125,22 @@ export const SignUp = () => {
                 visibilityPassword
               />
               <p className="text-start text-grey_descr text-sm mb-10">{descrText}</p>
-              <div className="flex items-center">
+              <div className="flex justify-center items-center md:flex-col">
                 <Button
                   type="submit"
-                  className="border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-lg text-base mr-10 py-4 px-10xl shadow-shadow-dark font-bold"
+                  className="border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-lg text-base mr-10 py-4 px-10xl shadow-shadow-dark font-bold
+                  md:mr-0"
                   btnName="Получить ссылку"
                 />
-                <span className="mr-4">Уже есть аккаунт?</span>
-                <Link
-                  to="/signin"
-                  className="underline text-light_purple hover:text-purple-700 font-semibold"
-                >
-                  Войти
-                </Link>
+                <div className="flex items-center md:mt-10">
+                  <span className="mr-4 ">Уже есть аккаунт?</span>
+                  <Link
+                    to="/signin"
+                    className="underline text-light_purple hover:text-purple-700 font-semibold"
+                  >
+                    Войти
+                  </Link>
+                </div>
               </div>
             </form>
           );

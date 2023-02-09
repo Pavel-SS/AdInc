@@ -2,6 +2,16 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    // backgroundImage: {
+    //   'he-on': "url('/src/assets/img/bg.png')",
+    // },
+    screens: {
+      xl: { max: '1280px' },
+      lg: { max: '992px' },
+      md: { max: '768px' },
+      lmd: { max: '540px' },
+      sm: { max: '480px' },
+    },
     extend: {
       width: {
         17: '4.375rem',

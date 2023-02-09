@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useRoutes } from 'react-router-dom';
 
-import './App.scss';
+// import './App.scss';
 import { Home } from './pages/home/Home';
 import { Main } from './pages/main/Main';
 import { SignIn } from './pages/signIn/SignIn';
