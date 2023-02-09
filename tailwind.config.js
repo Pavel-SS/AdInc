@@ -38,6 +38,7 @@ module.exports = {
         grey_descr: '#7C7C7C',
         yellow_descr: '#FFEB3C',
         blue_descr: '#039BE6',
+        red_error: '#E0371F',
       },
       boxShadow: {
         'shadow-dark': '4px 4px 0px 0px #000000',

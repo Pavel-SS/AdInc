@@ -13,3 +13,12 @@
          4px 4px 0px #4a4545;
 
 }
+
+.input_valid{
+	@apply mb-4 w-full border-2 rounded-lg  border-light_purple  text-base leading-5 py-4 pl-6 shadow-shadow-dark
+}
+
+.input_not_valid{
+	@apply mb-4 w-full border-2  border-red_error rounded-lg text-base leading-5 py-4 pl-6 shadow-shadow-dark
+}
+

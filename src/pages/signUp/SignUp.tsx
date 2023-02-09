@@ -16,10 +16,10 @@ import { InputText } from '../../common/Input/InputText';
 import s from './signup.module.scss';
 
 export const Schema = Yup.object().shape({
-  name: Yup.string().required('Name field is required'),
-  email: Yup.string().email().required('E-mail field is required'),
+  name: Yup.string().required('Не заполнены обязательные поля'),
+  email: Yup.string().email().required('Не заполнены обязательные поля'),
   password: Yup.string()
-    .required('This field is required')
+    .required('Не заполнено поле пароль')
     .min(8, 'Pasword must be 8 or more characters')
     .max(16)
     .matches(
@@ -32,11 +32,8 @@ export const Schema = Yup.object().shape({
       'Password should contain at least one special character',
     ),
   changepassword: Yup.string()
-    .label('confirm password')
-    .min(8)
-    .max(16)
-    .required()
-    .oneOf([Yup.ref('password'), null], 'Пароль должен совпадать'),
+    .required('Пароли должны совпадать')
+    .oneOf([Yup.ref('password'), null], 'Пароли должны совпадать'),
 });
 const descrText =
   'Регистрируясь, вы принимаете условия Лицензионного соглашения, Оферты, Политики конфиденциальности и даёте согласие на обработку персональных данных';
@@ -46,7 +43,7 @@ export const SignUp = () => {
     <div
       className="mx-auto max-w-7xl px-6 mt-7xl h-auto
      lg:bg-no-repeat lg:bg-bottom lg:bg-[url('/src/assets/svg/signupBg.svg')] lg:bg-fixed lg:bg-contain
-    lg:h-[100vh]
+    lg:h-[85vh]
     md:h-auto
      "
     >
@@ -63,7 +60,7 @@ export const SignUp = () => {
         // style={{ backgroundImage: `url(${bg})` }}
       />
       <div className="w-32">
-        <Link to="/" className="flex gap-4 mb-3 sm:mb-6">
+        <Link to="/" className="flex gap-4 mb-0 sm:mb-6">
           <img src={arrowIcon} alt="pic" />
           <span className="underline">Главная</span>
         </Link>
@@ -75,10 +72,22 @@ export const SignUp = () => {
           password: '',
           changepassword: '',
         }}
+        validateOnBlur
         validationSchema={Schema}
-        onSubmit={() => {}}
+        onSubmit={values => {
+          console.log(values);
+        }}
       >
-        {({ values, errors, handleSubmit, handleChange, handleBlur }) => {
+        {({
+          values,
+          errors,
+          dirty,
+          touched,
+          isValid,
+          handleSubmit,
+          handleChange,
+          handleBlur,
+        }) => {
           return (
             <form
               className="flex flex-col  w-[39.375rem] pb-0
@@ -87,21 +96,22 @@ export const SignUp = () => {
               onSubmit={handleSubmit}
             >
               <h2
-                className={`text-lefttext-light_purple font-bold mb-10 text-5xl ${s.title}
+                className={`text-lefttext-light_purple font-bold mb-[1.625rem] text-[2.5rem]
+                -mt-9 ${s.title}
                 sm:text-3xl`}
               >
                 Регистрация
               </h2>
-              {(errors.email ||
-                errors.name ||
-                errors.password ||
-                errors.changepassword) && (
+              {((touched.email && errors.email) ||
+                (touched.name && errors.name) ||
+                (touched.password && errors.password) ||
+                (touched.changepassword && errors.changepassword)) && (
                 <div className="error float-left mb-4" style={{ color: 'red' }}>
                   <img className="inline-block mr-3" src={varningIcon} alt="pic" />
                   {(errors.name && <span>{errors.name}</span>) ||
                     (errors.email && <span>{errors.email}</span>) ||
                     (errors.password && <span>{errors.password}</span>) ||
-                    (errors.changepassword && <span>{errors.password}</span>)}
+                    (errors.changepassword && <span>{errors.changepassword}</span>)}
                 </div>
               )}
               <InputText
@@ -110,7 +120,9 @@ export const SignUp = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 placeholder="User name"
-                className="mb-6 w-full border-2 border-light_purple rounded-lg text-base py-4 pl-6 shadow-shadow-dark"
+                className={
+                  touched.name && errors.name ? s.input_not_valid : s.input_valid
+                }
               />
               <InputText
                 value={values.email}
@@ -118,7 +130,9 @@ export const SignUp = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 placeholder="E-mail"
-                className="mb-6 w-full border-2 border-light_purple rounded-lg text-base py-4 pl-6 shadow-shadow-dark"
+                className={
+                  touched.email && errors.email ? s.input_not_valid : s.input_valid
+                }
               />
               <InputText
                 value={values.password}
@@ -126,7 +140,9 @@ export const SignUp = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 placeholder="Password"
-                className="mb-6 w-full border-2 border-light_purple rounded-lg text-base py-4 pl-6 pr-12 shadow-shadow-dark"
+                className={
+                  touched.password && errors.password ? s.input_not_valid : s.input_valid
+                }
                 visibilityPassword
               />
               <InputText
@@ -135,7 +151,11 @@ export const SignUp = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 placeholder="Confirm password"
-                className="mb-6 w-full border-2 border-light_purple rounded-lg text-base py-4 pl-6 shadow-shadow-dark"
+                className={
+                  touched.changepassword && errors.changepassword
+                    ? s.input_not_valid
+                    : s.input_valid
+                }
                 visibilityPassword
               />
               <div className="flex items-start">
@@ -143,13 +163,20 @@ export const SignUp = () => {
                   type="checkbox"
                   className=" appearance-none cursor-pointer  h-5 w-5 border-2 w rounded pr-5 pb-5  mr-5 mt-1 checked:bg-light_purple "
                 />
-                <p className="text-start text-grey_descr text-sm mb-10">{descrText}</p>
+                <p className="text-start text-grey_descr text-xs mb-10">{descrText}</p>
               </div>
               <div className="flex justify-center items-center md:flex-col">
                 <Button
+                  disabled={!isValid && !dirty}
+                  onClick={() => handleSubmit}
                   type="submit"
-                  className="border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-lg text-base mr-10 py-4 px-10xl shadow-shadow-dark font-bold
-                  md:mr-0"
+                  className={
+                    !isValid
+                      ? `border-0 bg-gray-400 cursor-not-allowed text-white  rounded-lg text-base mr-10 py-4 px-10xl shadow-shadow-dark font-bold
+                  md:mr-0`
+                      : `border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-lg text-base mr-10 py-4 px-10xl shadow-shadow-dark font-bold
+                  md:mr-0`
+                  }
                   btnName="Получить ссылку"
                 />
                 <div className="flex items-center md:mt-10">
