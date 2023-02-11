@@ -15,7 +15,7 @@ import { InputText } from '../../common/Input/InputText';
 
 import s from './signup.module.scss';
 
-export const Schema = Yup.object().shape({
+const Schema = Yup.object().shape({
   name: Yup.string().required('Name field is required'),
   email: Yup.string().email().required('E-mail field is required'),
   password: Yup.string()
@@ -50,7 +50,7 @@ export const SignUp = () => {
         style={{ backgroundImage: `url(${bg})` }}
       />
       <div className="w-32">
-        <Link to="/" className="flex gap-4 mb-13">
+        <Link to="/signup" className="flex gap-4 mb-13">
           <img src={arrowIcon} alt="pic" />
           <span className="underline">Главная</span>
         </Link>
@@ -128,7 +128,7 @@ export const SignUp = () => {
                 />
                 <span className="mr-4">Уже есть аккаунт?</span>
                 <Link
-                  to="/signin"
+                  to="/"
                   className="underline text-light_purple hover:text-purple-700 font-semibold"
                 >
                   Войти

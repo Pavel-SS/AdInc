@@ -1,13 +1,31 @@
+/* eslint-disable no-magic-numbers */
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
 
 import arrowIcon from '../../assets/svg/arrow_left.svg';
 import loginBg from '../../assets/svg/loginBg1.svg';
 import varningIcon from '../../assets/svg/mdi_warning-circle.svg';
 import { Button } from '../../common/Button/Button';
 import { InputText } from '../../common/Input/InputText';
-import { Schema } from '../signUp/SignUp';
 import s from '../signUp/signup.module.scss';
+
+const Schema = Yup.object().shape({
+  email: Yup.string().email().required('E-mail field is required'),
+  password: Yup.string()
+    .required('This field is required')
+    .min(8, 'Pasword must be 8 or more characters')
+    .max(16)
+    .matches(
+      /(?=.*[a-z])(?=.*[A-Z])\w+/,
+      'Password ahould contain at least one uppercase and lowercase character',
+    )
+    .matches(/\d/, 'Password should contain at least one number')
+    .matches(
+      /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/,
+      'Password should contain at least one special character',
+    ),
+});
 
 export const SignIn = () => {
   return (
@@ -39,8 +57,8 @@ export const SignIn = () => {
             </h2>
             <Formik
               initialValues={{
-                e: '',
-                pass: '',
+                email: '',
+                password: '',
               }}
               validationSchema={Schema}
               onSubmit={() => {}}
@@ -53,24 +71,24 @@ export const SignIn = () => {
                     method="POST"
                     onSubmit={handleSubmit}
                   >
-                    {(errors.e || errors.pass) && (
+                    {(errors.email || errors.password) && (
                       <div className="error float-left mb-4" style={{ color: 'red' }}>
                         <img className="inline-block mr-3" src={varningIcon} alt="pic" />
-                        {(errors.e && <span>{errors.e}</span>) ||
-                          (errors.pass && <span>{errors.pass}</span>)}
+                        {(errors.email && <span>{errors.email}</span>) ||
+                          (errors.password && <span>{errors.password}</span>)}
                       </div>
                     )}
                     <InputText
-                      value={values.e}
-                      name="e"
+                      value={values.email}
+                      name="email"
                       onBlur={handleBlur}
                       onChange={handleChange}
                       placeholder="Email"
                       className="mb-6 w-full border-2 border-light_purple rounded-lg text-base py-4 pl-6 shadow-shadow-dark"
                     />
                     <InputText
-                      value={values.pass}
-                      name="pass"
+                      value={values.password}
+                      name="password"
                       onBlur={handleBlur}
                       onChange={handleChange}
                       placeholder="Пароль"
@@ -94,10 +112,7 @@ export const SignIn = () => {
                       </div>
 
                       <div className="text-sm">
-                        <Link
-                          to="/signin"
-                          className="underline text-blue_descr text-base"
-                        >
+                        <Link to="/" className="underline text-blue_descr text-base">
                           Забыли пароль?
                         </Link>
                       </div>

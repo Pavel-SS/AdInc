@@ -28,7 +28,7 @@ export const Header = () => {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
-          <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+          {/* <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
             <Link
               to="/signin"
               className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -41,7 +41,7 @@ export const Header = () => {
             >
               Sign up
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 
