@@ -1,9 +1,15 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { Fragment } from 'react';
+// import React, { Fragment } from 'react';
 
-import { Popover, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  Popover,
+  // Transition
+} from '@headlessui/react';
+// import {
+//   // Bars3Icon,
+//   // XMarkIcon
+// } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
 import logoAD from '../../assets/svg/logo_AD.svg';
@@ -22,12 +28,12 @@ export const Header = () => {
               AD. Incubator
             </h1>
           </Link>
-          <div className="-my-2 -mr-2 md:hidden">
+          {/* <div className="-my-2 -mr-2 md:hidden">
             <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
-          </div>
+          </div> */}
           {/* <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
             <Link
               to="/signin"
@@ -45,7 +51,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <Transition
+      {/* <Transition
         as={Fragment}
         enter="duration-200 ease-out"
         enterFrom="opacity-0 scale-95"
@@ -94,7 +100,7 @@ export const Header = () => {
             </div>
           </div>
         </Popover.Panel>
-      </Transition>
+      </Transition> */}
     </Popover>
   );
 };
