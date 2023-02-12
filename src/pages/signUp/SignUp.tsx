@@ -19,12 +19,12 @@ const Schema = Yup.object().shape({
   name: Yup.string().required('Name field is required'),
   email: Yup.string().email().required('E-mail field is required'),
   password: Yup.string()
-    .required('This field is required')
+    .required('Password field is required')
     .min(8, 'Pasword must be 8 or more characters')
     .max(16)
     .matches(
       /(?=.*[a-z])(?=.*[A-Z])\w+/,
-      'Password ahould contain at least one uppercase and lowercase character',
+      'Password should contain at least one uppercase and lowercase character',
     )
     .matches(/\d/, 'Password should contain at least one number')
     .matches(
@@ -32,11 +32,8 @@ const Schema = Yup.object().shape({
       'Password should contain at least one special character',
     ),
   changepassword: Yup.string()
-    .label('confirm password')
-    .min(8)
-    .max(16)
-    .required()
-    .oneOf([Yup.ref('password'), null], 'Пароль должен совпадать'),
+    .required('Confirm Password is required')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match'),
 });
 const descrText =
   'Регистрируясь, вы принимаете условия Лицензионного соглашения, Оферты, Политики конфиденциальности и даёте согласие на обработку персональных данных';
@@ -65,7 +62,7 @@ export const SignUp = () => {
             changepassword: '',
           }}
           validationSchema={Schema}
-          onSubmit={() => {}}
+          onSubmit={values => console.log(values)}
         >
           {({ values, errors, handleSubmit, handleChange, handleBlur }) => {
             return (
