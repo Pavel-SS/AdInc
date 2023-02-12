@@ -27,6 +27,7 @@ module.exports = {
         light_purple: '#8C52FF',
         grey_descr: '#7C7C7C',
         yellow_descr: '#FFEB3C',
+        yellow_hover: '#DBC820',
         blue_descr: '#039BE6',
       },
       boxShadow: {

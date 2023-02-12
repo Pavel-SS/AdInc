@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import arrowIcon from '../../assets/svg/arrow_left.svg';
-import login from '../../assets/svg/login.svg';
+import loginBg from '../../assets/svg/loginBg.svg';
 import varningIcon from '../../assets/svg/mdi_warning-circle.svg';
 import { Button } from '../../common/Button/Button';
 import { InputText } from '../../common/Input/InputText';
@@ -50,10 +50,10 @@ export const SignIn = () => {
       <div
         className="absolute top-0 bottom-0 sm:min-h-[45rem]
         left-0 right-0 bg-contain bg-no-repeat bg-bottom -z-20"
-        style={{ backgroundImage: `url(${login})` }}
+        style={{ backgroundImage: `url(${loginBg})` }}
       />
       <div className="mx-auto max-w-7xl px-6 mt-20 relative">
-        <Link to="/" className="flex gap-4 z-20 absolute w-32 -top-8">
+        <Link to="/" className="flex gap-4 z-20 absolute w-32 -top-[3.1rem]">
           <img src={arrowIcon} alt="pic" />
           <span className="underline">Главная</span>
         </Link>
@@ -86,7 +86,7 @@ export const SignIn = () => {
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
                 placeholder="Email"
-                className="mb-4 w-full border-2 border-light_purple rounded-full text-base py-4 pl-6 shadow-shadow-dark"
+                className="mb-4 w-full border-2 border-light_purple rounded-[20px] text-base leading-5 py-[.9375rem] pl-6 shadow-shadow-dark"
               />
               <InputText
                 value={formik.values.password}
@@ -94,7 +94,7 @@ export const SignIn = () => {
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
                 placeholder="Пароль"
-                className="mb-4 w-full border-2 border-light_purple rounded-full text-base py-4 pl-6 shadow-shadow-dark"
+                className="mb-4 w-full border-2 border-light_purple rounded-[20px] text-base leading-5 py-[.9375rem] pl-6 shadow-shadow-dark"
                 visibilityPassword
               />
               <div className="flex items-center justify-between">
@@ -183,7 +183,7 @@ export const SignIn = () => {
               <div className="flex items-center mt-[1.875rem]">
                 <Button
                   type="submit"
-                  className="border-0 w-[14.4375rem] bg-yellow_descr rounded-[1.25rem] text-base py-[.875rem] px-10xl shadow-shadow-dark font-bold"
+                  className="hover:bg-yellow_hover border-0 w-[14.4375rem] bg-yellow_descr rounded-[20px] text-base py-[.875rem] px-10xl shadow-shadow-dark font-bold"
                   btnName="Войти"
                 />
                 <Link
