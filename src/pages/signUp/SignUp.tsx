@@ -46,16 +46,16 @@ export const Schema = Yup.object().shape({
   email: Yup.string().email().required('Не заполнены обязательные поля'),
   password: Yup.string()
     .required('Не заполнено поле пароль')
-    .min(8, 'Pasword must be 8 or more characters')
+    .min(8, 'Пароль должен быть более 8 символов')
     .max(16)
     .matches(
       /(?=.*[a-z])(?=.*[A-Z])\w+/,
-      'Password ahould contain at least one uppercase and lowercase character',
+      'Пароль должен содержать как минимум одну прописную и одну строчную букву',
     )
-    .matches(/\d/, 'Password should contain at least one number')
+    .matches(/\d/, 'Пароль должен содержать как минимум одну цифру')
     .matches(
       /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/,
-      'Password should contain at least one special character',
+      'Пароль должен содержать специальный символ',
     ),
   changepassword: Yup.string()
     .required('Пароли должны совпадать')
@@ -65,23 +65,15 @@ const descrText =
   'Регистрируясь, вы принимаете условия Лицензионного соглашения, Оферты, Политики конфиденциальности и даёте согласие на обработку персональных данных';
 
 export const SignUp = () => {
-  const [checkboxChecked, setChecked] = useState<boolean>(true);
-  const handleChangeCheckbox = () => setChecked(checked => !checked);
-
   return (
-    <div
-      className="mx-auto max-w-7xl px-6 mt-7xl
-
-     "
-    >
+    <div className="mx-auto max-w-7xl px-6 mt-7xl">
       <div
-        className="absolute top-0 bottom-0 sm:min-h-[45rem]
+        className="absolute top-0 bottom-0 sm:min-h-[47rem]
         left-0 right-0 bg-contain bg-no-repeat bg-bottom -z-20
          bg-[url('/src/assets/svg/signupBg.svg')]"
-        // style={{ backgroundImage: `url(${bg})` }}
       />
       <div
-        className="flex items-start justify-center px-4
+        className="flex items-center justify-center px-4 
         sm:px-6 lg:px-8 h-[60vh] min-h-[460px] relative"
       >
         <Link to="/" className="flex gap-4 z-20 absolute w-32 top-0 left-0">
@@ -114,7 +106,7 @@ export const SignUp = () => {
                 onSubmit={handleSubmit}
               >
                 <h2
-                  className={`text-left text-[20px] font-bold text-light_purple mb-[1.625rem] md:text-[40px]  ${styles.title}`}
+                  className={`text-left text-[20px] font-bold text-light_purple mb-[1.625rem] md:text-[48px] tracking-wider ${styles.title}`}
                 >
                   Регистрация
                 </h2>
@@ -180,83 +172,8 @@ export const SignUp = () => {
                   }
                   visibilityPassword
                 />
-                <div className="flex flex-row ">
-                  <div className=" cursor-pointer">
-                    <svg
-                      onClick={handleChangeCheckbox}
-                      width="21"
-                      height="21"
-                      viewBox="0 0 21 21"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g filter="url(#filter0_d_594_917)">
-                        <rect
-                          x="1"
-                          y="1"
-                          width="16"
-                          height="16"
-                          stroke="#8C52FF"
-                          strokeWidth="2"
-                          shapeRendering="crispEdges"
-                          fill="white"
-                        />
-                        {!!checkboxChecked && (
-                          <path d="M5 9L8 12.5L13 5" stroke="black" strokeWidth="2" />
-                        )}
-                      </g>
-                      <defs>
-                        <filter
-                          id="filter0_d_594_917"
-                          x="0"
-                          y="0"
-                          width="21"
-                          height="21"
-                          filterUnits="userSpaceOnUse"
-                          colorInterpolationFilters="sRGB"
-                        >
-                          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                          <feColorMatrix
-                            in="SourceAlpha"
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                            result="hardAlpha"
-                          />
-                          <feOffset dx="3" dy="3" />
-                          <feComposite in2="hardAlpha" operator="out" />
-                          <feColorMatrix
-                            type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"
-                          />
-                          <feBlend
-                            mode="normal"
-                            in2="BackgroundImageFix"
-                            result="effect1_dropShadow_594_917"
-                          />
-                          <feBlend
-                            mode="normal"
-                            in="SourceGraphic"
-                            in2="effect1_dropShadow_594_917"
-                            result="shape"
-                          />
-                        </filter>
-                      </defs>
-                    </svg>
-                  </div>
-                  <input
-                    id="contract"
-                    name="contract"
-                    type="checkbox"
-                    className="mr-2 opacity-0 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                  />
 
-                  <p
-                    className=" text-grey_descr text-xs mb-10 "
-                    onClick={handleChangeCheckbox}
-                  >
-                    {descrText}
-                  </p>
-                </div>
+                <p className=" text-grey_descr text-xs mb-10 ">{descrText}</p>
 
                 <div className="flex flex-col items-center md:flex-row">
                   <div>
