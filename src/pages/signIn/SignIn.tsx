@@ -58,7 +58,7 @@ export const SignIn = () => {
           <span className="underline">Главная</span>
         </Link>
         <div
-          className="flex items-center justify-center px-4 
+          className="flex items-center justify-center px-4
         sm:px-6 lg:px-8 h-[50vh] min-h-[300px]"
         >
           <div className="w-full max-w-[32.5rem] space-y-8">
