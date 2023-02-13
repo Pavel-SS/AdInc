@@ -29,6 +29,7 @@ module.exports = {
         yellow_descr: '#FFEB3C',
         yellow_hover: '#DBC820',
         blue_descr: '#039BE6',
+        error: '#E0371F',
       },
       boxShadow: {
         'shadow-dark': '4px 4px 0px 0px #000000',

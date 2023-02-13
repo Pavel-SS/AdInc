@@ -20,19 +20,19 @@ export const SignIn = () => {
   const handleChangeCheckbox = () => setChecked(checked => !checked);
 
   const Schema = Yup.object().shape({
-    email: Yup.string().email().required('E-mail field is required'),
+    email: Yup.string().email().required('Не заполнены поля E-mail или пароль'),
     password: Yup.string()
-      .required('This field is required')
-      .min(8, 'Pasword must be 8 or more characters')
+      .required('Не заполнено поле пароль')
+      .min(8, 'Пароль должен быть более 8 символов')
       .max(16)
       .matches(
         /(?=.*[a-z])(?=.*[A-Z])\w+/,
-        'Password should contain at least one uppercase and lowercase character',
+        'Пароль должен содержать как минимум одну прописную и одну строчную букву',
       )
-      .matches(/\d/, 'Password should contain at least one number')
+      .matches(/\d/, 'Пароль должен содержать как минимум одну цифру')
       .matches(
         /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/,
-        'Password should contain at least one special character',
+        'Пароль должен содержать специальный символ',
       ),
   });
 
@@ -58,12 +58,12 @@ export const SignIn = () => {
           <span className="underline">Главная</span>
         </Link>
         <div
-          className="flex items-center justify-center px-4 
+          className="flex items-center justify-center px-4
         sm:px-6 lg:px-8 h-[50vh] min-h-[300px]"
         >
           <div className="w-full max-w-[32.5rem] space-y-8">
             <h2
-              className={`text-left text-5xl font-bold text-yellow_descr mb-10 ${s.title}`}
+              className={`tracking-wider text-left text-5xl font-bold text-yellow_descr mb-10 ${s.title}`}
             >
               Вход
             </h2>
@@ -73,7 +73,8 @@ export const SignIn = () => {
               method="POST"
               onSubmit={formik.handleSubmit}
             >
-              {(formik.errors.email || formik.errors.password) && (
+              {((formik.touched.email && formik.errors.email) ||
+                (formik.touched.password && formik.errors.password)) && (
                 <div className="error float-left mb-4" style={{ color: 'red' }}>
                   <img className="inline-block mr-3" src={varningIcon} alt="pic" />
                   {(formik.errors.email && <span>{formik.errors.email}</span>) ||
@@ -86,7 +87,11 @@ export const SignIn = () => {
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
                 placeholder="Email"
-                className="mb-4 w-full border-2 border-light_purple rounded-[20px] text-base leading-5 py-[.9375rem] pl-6 shadow-shadow-dark"
+                className={
+                  formik.touched.email && formik.errors.email
+                    ? 'py-[.5rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
+                    : 'py-[.5rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
+                }
               />
               <InputText
                 value={formik.values.password}
@@ -94,7 +99,11 @@ export const SignIn = () => {
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
                 placeholder="Пароль"
-                className="mb-4 w-full border-2 border-light_purple rounded-[20px] text-base leading-5 py-[.9375rem] pl-6 shadow-shadow-dark"
+                className={
+                  formik.touched.password && formik.errors.password
+                    ? 'py-[.5rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
+                    : 'py-[.5rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
+                }
                 visibilityPassword
               />
               <div className="flex items-center justify-between">
