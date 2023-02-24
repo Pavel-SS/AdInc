@@ -66,17 +66,17 @@ const descrText =
 
 export const SignUp = () => {
   return (
-    <div className="mx-auto max-w-7xl px-6 mt-7xl">
+    <div className="mx-auto max-w-7xl px-6 mt-[0.875rem]  sm:mt-7xl">
       <div
         className="absolute top-0 bottom-0 sm:min-h-[47rem]
         left-0 right-0 bg-contain bg-no-repeat bg-bottom -z-20
          bg-[url('/src/assets/svg/signupBg.svg')]"
       />
       <div
-        className="flex items-center justify-center px-4 
+        className="flex items-center justify-center px-4
         sm:px-6 lg:px-8 h-[60vh] min-h-[460px] relative"
       >
-        <Link to="/" className="flex gap-4 z-20 absolute w-32 top-0 left-0">
+        <Link to="/" className=" hidden gap-4 z-20 absolute w-32 top-0 left-0 md:flex">
           <img src={arrowIcon} alt="pic" />
           <span className="underline">Главная</span>
         </Link>
@@ -102,11 +102,13 @@ export const SignUp = () => {
           }) => {
             return (
               <form
-                className="flex flex-col max-w-[32.5rem] mx-auto mt-[2rem]  md:mt-[-1rem]  "
+                className="flex flex-col max-w-[32.5rem] mx-auto sm:mt-[2rem]  md:mt-[-1rem]  "
                 onSubmit={handleSubmit}
               >
                 <h2
-                  className={`text-left text-[20px] font-bold text-light_purple mb-[1.625rem] md:text-[48px] tracking-wider ${styles.title}`}
+                  className={`text-center  text-[32px] font-bold text-black mb-[1.625rem]
+                  sm:text-left
+                  md:text-[48px]  tracking-wider ${styles.title}`}
                 >
                   Регистрация
                 </h2>
