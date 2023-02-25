@@ -70,7 +70,8 @@ export const SignUp = () => {
       <div
         className="absolute top-0 bottom-0 sm:min-h-[47rem]
         left-0 right-0 bg-contain bg-no-repeat bg-bottom -z-20
-         bg-[url('/src/assets/svg/signupBg.svg')]"
+         bg-[url('/src/assets/svg/bg-mobile.svg')]
+         sm:bg-[url('/src/assets/svg/signupBg.svg')]"
       />
       <div
         className="flex items-center justify-center px-4
