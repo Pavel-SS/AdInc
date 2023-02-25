@@ -103,7 +103,7 @@ export const SignUp = () => {
           }) => {
             return (
               <form
-                className="flex flex-col max-w-[32.5rem] mx-auto mt-[-20px]  sm:mt-[1rem]  md:mt-[-2rem]  "
+                className="flex flex-col max-w-[32.5rem] mx-auto mt-[-20px]  sm:mt-[1rem]  md:mt-[-1rem]  "
                 onSubmit={handleSubmit}
               >
                 <h2
@@ -187,8 +187,8 @@ export const SignUp = () => {
                   <div className="w-full sm:w-auto ">
                     <Button
                       type="submit"
-                      className="w-full sm:w-auto  border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-[20px] text-sm leading-5 sm:mr-5 mb-5 py-4 sm:py-2 px-2 shadow-shadow-dark font-bold
-                     md:mb-0 md:py-4 md:px-10xl"
+                      className="w-full sm:w-auto  border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-[20px] text-sm leading-5 sm:mr-5 mb-5 py-4 sm:py-4 px-10xl shadow-shadow-dark font-bold
+                     md:mb-0 "
                       btnName="Получить ссылку"
                     />
                     <span className="hidden sm:inline-block mr-0  mb-5 md:mb-0">
