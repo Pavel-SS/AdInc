@@ -183,15 +183,15 @@ export const SignUp = () => {
                   {descrText}
                 </p>
 
-                <div className="flex flex-col items-center md:flex-row">
-                  <div className="w-full sm:w-auto ">
+                <div className="flex flex-col items-center sm:flex-row">
+                  <div className="w-full  ">
                     <Button
                       type="submit"
-                      className="w-full sm:w-auto  border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-[20px] text-sm leading-5 sm:mr-5 mb-5 py-4 sm:py-4 px-10xl shadow-shadow-dark font-bold
+                      className="w-full sm:w-auto  border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-[20px] text-sm leading-5 sm:mr-5 mb-5 sm:mb-0 py-4 sm:py-4 px-10xl shadow-shadow-dark font-bold
                      md:mb-0 "
                       btnName="Получить ссылку"
                     />
-                    <span className="hidden sm:inline-block mr-0  mb-5 md:mb-0">
+                    <span className="hidden sm:inline-block mr-0   md:mb-0">
                       Уже есть аккаунт?
                     </span>
                   </div>
@@ -199,7 +199,7 @@ export const SignUp = () => {
                   <Link
                     to="/"
                     className="underline text-light_purple hover:text-purple-700 font-semibold
-                    md:ml-2"
+                    sm:ml-[-6.5rem]"
                   >
                     Войти
                   </Link>
