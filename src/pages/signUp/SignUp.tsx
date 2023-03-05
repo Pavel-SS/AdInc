@@ -66,17 +66,18 @@ const descrText =
 
 export const SignUp = () => {
   return (
-    <div className="mx-auto max-w-7xl px-6 mt-7xl">
+    <div className="mx-auto max-w-7xl px-6 mt-[0.875rem]  sm:mt-7xl">
       <div
         className="absolute top-0 bottom-0 sm:min-h-[47rem]
         left-0 right-0 bg-contain bg-no-repeat bg-bottom -z-20
-         bg-[url('/src/assets/svg/signupBg.svg')]"
+         bg-[url('/src/assets/svg/bg-mobile.svg')]
+         sm:bg-[url('/src/assets/svg/signupBg.svg')]"
       />
       <div
-        className="flex items-center justify-center px-4 
+        className="flex  justify-center
         sm:px-6 lg:px-8 h-[60vh] min-h-[460px] relative"
       >
-        <Link to="/" className="flex gap-4 z-20 absolute w-32 top-0 left-0">
+        <Link to="/" className=" hidden gap-4 z-20 absolute w-32 top-0 left-0 md:flex">
           <img src={arrowIcon} alt="pic" />
           <span className="underline">Главная</span>
         </Link>
@@ -102,11 +103,13 @@ export const SignUp = () => {
           }) => {
             return (
               <form
-                className="flex flex-col max-w-[32.5rem] mx-auto mt-[2rem]  md:mt-[-1rem]  "
+                className="flex flex-col max-w-[32.5rem] mx-auto mt-[-20px]  sm:mt-[1rem]  md:mt-[-1rem]  "
                 onSubmit={handleSubmit}
               >
                 <h2
-                  className={`text-left text-[20px] font-bold text-light_purple mb-[1.625rem] md:text-[48px] tracking-wider ${styles.title}`}
+                  className={`text-center  text-[32px] font-bold text-black mb-[1.625rem]
+                  sm:text-left
+                  md:text-[48px]  tracking-wider ${styles.title}`}
                 >
                   Регистрация
                 </h2>
@@ -114,7 +117,10 @@ export const SignUp = () => {
                   (touched.name && errors.name) ||
                   (touched.password && errors.password) ||
                   (touched.changepassword && errors.changepassword)) && (
-                  <div className="error float-left mb-4" style={{ color: 'red' }}>
+                  <div
+                    className="error float-left mb-4 text-xs xs360:text-sm media400:text-base"
+                    style={{ color: 'red' }}
+                  >
                     <img className="inline-block mr-3" src={varningIcon} alt="pic" />
                     {(errors.name && <span>{errors.name}</span>) ||
                       (errors.email && <span>{errors.email}</span>) ||
@@ -130,8 +136,8 @@ export const SignUp = () => {
                   placeholder="Имя пользователя"
                   className={
                     touched.name && errors.name
-                      ? 'py-[.5rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
-                      : 'py-[.5rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
+                      ? 'py-[.75rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark placeholder:text-sm xs360:placeholder:text-base'
+                      : 'py-[.75rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark placeholder:text-sm xs360:placeholder:text-base'
                   }
                 />
                 <InputText
@@ -142,8 +148,8 @@ export const SignUp = () => {
                   placeholder="E-mail"
                   className={
                     touched.email && errors.email
-                      ? 'py-[.5rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
-                      : 'py-[.5rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark '
+                      ? 'py-[.75rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark placeholder:text-sm xs360:placeholder:text-base'
+                      : 'py-[.75rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark placeholder:text-sm xs360:placeholder:text-base'
                   }
                 />
                 <InputText
@@ -154,8 +160,8 @@ export const SignUp = () => {
                   placeholder="Пароль (до 16 символов)"
                   className={
                     touched.password && errors.password
-                      ? 'py-[.5rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
-                      : 'py-[.5rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
+                      ? 'py-[.75rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark placeholder:text-sm xs360:placeholder:text-base'
+                      : 'py-[.75rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark placeholder:text-sm xs360:placeholder:text-base'
                   }
                   visibilityPassword
                 />
@@ -167,29 +173,33 @@ export const SignUp = () => {
                   placeholder="Подтвердить пароль"
                   className={
                     touched.changepassword && errors.changepassword
-                      ? 'py-[.5rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
-                      : 'py-[.5rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
+                      ? 'py-[.75rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark placeholder:text-sm xs360:placeholder:text-base'
+                      : 'py-[.75rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark placeholder:text-sm xs360:placeholder:text-base'
                   }
                   visibilityPassword
                 />
 
-                <p className=" text-grey_descr text-xs mb-10 ">{descrText}</p>
+                <p className=" text-grey_descr text-[10px] sm:text-xs mb-6 sm:mb-10 text-center sm:text-left">
+                  {descrText}
+                </p>
 
-                <div className="flex flex-col items-center md:flex-row">
-                  <div>
+                <div className="flex flex-col items-center sm:flex-row">
+                  <div className="w-full  ">
                     <Button
                       type="submit"
-                      className="border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-[20px] text-sm leading-5 mr-5 mb-5 py-2 px-2 shadow-shadow-dark font-bold
-                     md:mb-0 md:py-4 md:px-10xl"
+                      className="w-full sm:w-auto  border-0 bg-light_purple hover:bg-purple-700 text-white  rounded-[20px] text-sm leading-5 sm:mr-5 mb-5 sm:mb-0 py-4 sm:py-4 px-10xl shadow-shadow-dark font-bold
+                     md:mb-0 "
                       btnName="Получить ссылку"
                     />
-                    <span className="mr-0  mb-5 md:mb-0">Уже есть аккаунт?</span>
+                    <span className="hidden sm:inline-block mr-0   md:mb-0">
+                      Уже есть аккаунт?
+                    </span>
                   </div>
 
                   <Link
                     to="/"
                     className="underline text-light_purple hover:text-purple-700 font-semibold
-                    md:ml-2"
+                    sm:ml-[-6.5rem]"
                   >
                     Войти
                   </Link>

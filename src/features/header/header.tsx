@@ -16,7 +16,7 @@ import logoAD from '../../assets/svg/logo_AD.svg';
 
 export const Header = () => {
   return (
-    <Popover className="relative border-b border-black z-20">
+    <Popover className="relative sm:border-b border-black z-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between py-3.5 md:justify-start md:space-x-10">
           <Link
@@ -24,7 +24,7 @@ export const Header = () => {
             className="flex justify-start items-center gap-2 sm:gap-4 py-px lg:w-0 lg:flex-1"
           >
             <img className="h-10 w-auto float-left sm:h-17" src={logoAD} alt="" />
-            <h1 className="inline-block text-2xl sm:text-2.5xl sm:leading-[2.125rem] font-bold">
+            <h1 className="inline-block text-[18px] sm:text-2.5xl sm:leading-[2.125rem] font-bold">
               AD. Incubator
             </h1>
           </Link>
