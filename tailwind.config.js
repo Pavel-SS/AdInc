@@ -25,7 +25,9 @@ module.exports = {
       },
       colors: {
         light_purple: '#8C52FF',
+        light_grey: '#F4F4F4',
         grey_descr: '#7C7C7C',
+        grey_menu: '#2A2D34',
         yellow_descr: '#FFEB3C',
         yellow_hover: '#DBC820',
         blue_descr: '#039BE6',
