@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
 import airplane from '../../assets/svg/AirplanePurple.svg';
-import arrow from '../../assets/svg/arrow_right.svg';
 import crownIcon from '../../assets/svg/crown--black.svg';
 import back from '../../assets/svg/Rectangle.svg';
 
+import { ConsultationCard } from './ConsultationCard';
 import style from './consultations.module.scss';
 
 const dummyData: { name: string; image: string; text: string }[] = [
@@ -33,26 +33,7 @@ export const Consultations = () => {
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7 py-7 justify-items-center">
         {dummyData.map(consultation => {
-          return (
-            <div
-              key={consultation.name}
-              className="shadow-shadow-dark rounded-3xl bg-white z-10"
-            >
-              <img className="w-full" src={consultation.image} alt="consultationImage" />
-              <div className="flex flex-col items-end p-6">
-                <h3 className="font-semibold text-xl text-start w-full">
-                  {consultation.name}
-                </h3>
-                <p>{consultation.text}</p>
-                <Link
-                  to="/#"
-                  className="flex justify-center items-center w-6 h-6 border-light_purple border-2 rounded-lg"
-                >
-                  <img src={arrow} alt="arrow" />
-                </Link>
-              </div>
-            </div>
-          );
+          return <ConsultationCard key={consultation.name} {...consultation} />;
         })}
       </div>
     </div>
