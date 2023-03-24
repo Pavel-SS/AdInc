@@ -12,15 +12,15 @@ export const Main = () => {
 
   return (
     <div className="App">
-      {location.pathname !== '/consultations' ? (
+      {location.pathname === '/consultations' || location.pathname === '/help' ? (
+        <Profile>
+          <Outlet />
+        </Profile>
+      ) : (
         <>
           <Header />
           <Outlet />
         </>
-      ) : (
-        <Profile>
-          <Outlet />
-        </Profile>
       )}
     </div>
   );
