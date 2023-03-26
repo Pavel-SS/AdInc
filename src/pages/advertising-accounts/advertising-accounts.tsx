@@ -8,12 +8,12 @@ export const AdvertisingAccounts = () => {
       className="w-full pt-[30px]
     bg-contain bg-no-repeat bg-bottom z-20"
     >
-      <div className="relative text-[40px] font-bold rounded-[10px]   text-center bg-[#F4F4F4] bg-center  mx-[30px]  mb-[70px] py-8 -z-10 ">
+      <div className="text-[25px]  md:text-[40px] font-bold rounded-[10px]   text-center bg-[#F4F4F4]   mx-[30px] mb-[30px]  md:mb-[70px] py-8 -z-10 ">
         Рекламные аккаунты
       </div>
-      <div className="pl-[140px]">
-        <p className="font-bold text-2xl mb-3">Добавьте рекламный аккаунт</p>
-        <p className="text-base mb-6">
+      <div className="px-[2.5rem] lg:pl-[140px] sm:px-[4.5rem] ">
+        <p className="font-bold text-base md:text-2xl mb-3">Добавьте рекламный аккаунт</p>
+        <p className=" max-w-[662px] text-base mb-6">
           Добавьте ваш рекламный аккаунт или создайте новый. После этого вы сможете
           смотреть статистику, управлять ставками и бюджетом в одном кабинете.
         </p>
