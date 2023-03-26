@@ -32,7 +32,7 @@ export const Question: React.FC<Props> = ({ name, text }) => {
           </p>
         </div>
       </div>
-      <img src={chevron} alt="chevron" />
+      <img src={chevron} alt="chevron" className={isClosed ? '' : `rotate-180`} />
     </div>
   );
 };
