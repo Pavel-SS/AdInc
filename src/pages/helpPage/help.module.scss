@@ -1,0 +1,17 @@
+.consultations {
+  background-image: url('../../assets/svg/accountBg.svg');
+}
+
+.accordion {
+  transition: all 0.3s ease;
+}
+
+.closed {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.open {
+  max-height: 300px;
+  margin-bottom: 2rem;
+}

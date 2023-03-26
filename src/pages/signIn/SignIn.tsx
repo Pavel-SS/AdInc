@@ -20,7 +20,7 @@ export const SignIn = () => {
   const handleChangeCheckbox = () => setChecked(checked => !checked);
 
   const Schema = Yup.object().shape({
-    email: Yup.string().email().required('Не заполнены поля E-mail или пароль'),
+    login: Yup.string().email().required('Не заполнены поля логин или пароль'),
     password: Yup.string()
       .required('Не заполнено поле пароль')
       .min(8, 'Пароль должен быть более 8 символов')
@@ -38,7 +38,7 @@ export const SignIn = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      login: '',
       password: '',
     },
     validationSchema: Schema,
@@ -74,25 +74,25 @@ export const SignIn = () => {
               method="POST"
               onSubmit={formik.handleSubmit}
             >
-              {((formik.touched.email && formik.errors.email) ||
+              {((formik.touched.login && formik.errors.login) ||
                 (formik.touched.password && formik.errors.password)) && (
                 <div
                   className="error float-left mb-4 text-xs xs360:text-sm media400:text-base"
                   style={{ color: 'red' }}
                 >
                   <img className="inline-block mr-3" src={varningIcon} alt="pic" />
-                  {(formik.errors.email && <span>{formik.errors.email}</span>) ||
+                  {(formik.errors.login && <span>{formik.errors.login}</span>) ||
                     (formik.errors.password && <span>{formik.errors.password}</span>)}
                 </div>
               )}
               <InputText
-                value={formik.values.email}
-                name="email"
+                value={formik.values.login}
+                name="login"
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
-                placeholder="Email"
+                placeholder="Логин"
                 className={
-                  formik.touched.email && formik.errors.email
+                  formik.touched.login && formik.errors.login
                     ? 'py-[.75rem] mb-4 w-full border-2  border-error rounded-[20px] text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
                     : 'py-[.75rem] mb-4 w-full border-2 rounded-[20px]  border-light_purple  text-base leading-5 md:py-[.9375rem] pl-6 shadow-shadow-dark'
                 }

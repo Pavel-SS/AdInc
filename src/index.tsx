@@ -8,7 +8,6 @@ import App from './App';
 import { store } from './app/store';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';
-import '@fontsource/montserrat';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
