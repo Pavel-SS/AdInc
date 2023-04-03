@@ -26,7 +26,7 @@ export const Profile = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="relative flex">
-      <aside className="sticky top-0 bg-grey_menu min-w-max h-screen py-6 px-9">
+      <aside className="sticky top-0 bg-grey_menu min-w-max h-screen py-6 px-1 sm:px-9">
         <div className="flex items-center gap-3">
           <img className="h-10 md:h-17" src={logoAD} alt="logoAd" />
           <h1 className="md:inline-block hidden text-2xl md:text-2.5xl md:leading-[2.125rem] font-bold text-white">
@@ -66,15 +66,15 @@ export const Profile = ({ children }: { children: React.ReactNode }) => {
       <div className="flex flex-col w-full min-h-screen">
         <header className=" sticky top-0 border-b border-black bg-white py-7 z-20">
           <nav className="flex gap-7 justify-end">
-            <div className="flex">
+            <div className="flex items-center">
               <img className="pr-2.5" src={emptyWalletIcon} alt="emptyWallet" />
-              <a href="/#" className="font-semibold">
+              <a href="/#" className="font-semibold text-[12px] media400:text-base ">
                 Финансы
               </a>
             </div>
-            <div className="flex mr-8">
+            <div className="flex mr-2 items-center media400:mr-8">
               <img className="pr-2.5" src={userIcon} alt="userIcon" />
-              <a href="/#" className="font-semibold">
+              <a href="/#" className="font-semibold text-[12px] media400:text-base">
                 Иван Иванов
               </a>
             </div>

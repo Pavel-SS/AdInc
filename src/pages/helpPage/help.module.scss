@@ -12,8 +12,11 @@
 }
 
 .open {
-  max-height: 300px;
+  max-height: auto;
   margin-bottom: 2rem;
+  hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
 }
 
 .scroll_area {
@@ -23,11 +26,10 @@
     width: 25px;
   }
 
-
   &::-webkit-scrollbar-thumb {
-  border: 8px solid rgba(0, 0, 0, 0);
-  background-clip: padding-box;
-  border-radius: 12px;
-  background-color: rgb(42, 45, 52,0.3);
+    border: 8px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 12px;
+    background-color: rgb(42, 45, 52, 0.3);
   }
 }

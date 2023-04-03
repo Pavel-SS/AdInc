@@ -14,7 +14,7 @@ export const Question: React.FC<Props> = ({ name, text }) => {
 
   return (
     <div
-      className="mx-9 flex justify-between content-center"
+      className="mx-1 media400:mx-9 flex justify-between content-center"
       onClick={() => setIsClosed(!isClosed)}
       role="presentation"
     >
@@ -22,6 +22,7 @@ export const Question: React.FC<Props> = ({ name, text }) => {
         <div className="py-6 font-bold ">{name}</div>
         <div>
           <p
+            lang="ru"
             className={
               isClosed
                 ? `${style.accordion} ${style.closed}`
@@ -32,7 +33,11 @@ export const Question: React.FC<Props> = ({ name, text }) => {
           </p>
         </div>
       </div>
-      <img src={chevron} alt="chevron" className={isClosed ? '' : `rotate-180`} />
+      <img
+        src={chevron}
+        alt="chevron"
+        className={isClosed ? 'z-[5] cursor-pointer' : `z-[5] rotate-180 cursor-pointer`}
+      />
     </div>
   );
 };

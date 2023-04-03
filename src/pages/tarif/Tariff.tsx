@@ -27,12 +27,12 @@ export const tafirsList = [
 
 export const Tariff = () => {
   return (
-    <div className=" relative p-10 min-h-full">
+    <div className=" relative p-2 media400:p-10 min-h-full">
       <img className="absolute right-0 top-0" src={airplane} alt="airplane" />
-      <h2 className="bg-light_grey rounded-xl font-bold text-4.5xl text-center py-8 mb-8">
+      <h2 className="bg-light_grey rounded-xl font-bold text-2xl sm:text-4.5xl text-center py-8 mb-8">
         Выбор тарифного плана
       </h2>
-      <ul className="flex justify-center gap-8">
+      <ul className="flex flex-wrap justify-center gap-8">
         {tafirsList.map(item => (
           <TarifCards
             key={item.name}

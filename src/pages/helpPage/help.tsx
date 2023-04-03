@@ -28,7 +28,7 @@ const dummyData: { name: string; text: string }[] = [
 export const Help = () => {
   return (
     <div
-      className={`relative p-10 min-h-full bg-no-repeat bg-bottom bg-contain ${style.consultations}`}
+      className={`relative p-2 media430:p-10 min-h-full bg-no-repeat bg-bottom bg-contain ${style.consultations}`}
     >
       <img className="absolute right-0 top-0" src={airplane} alt="airplane" />
       <div className="flex gap-3 rounded-xl items-center text-left z-10">
@@ -55,7 +55,7 @@ export const Help = () => {
         Оставить Заявку
       </button>
       <div
-        className={`divide-y divide-purple-400  shadow-shadow-dark max-h-96   border-4 rounded-xl border-solid border-light_purple mt-10  bg-white   ${style.scroll_area}`}
+        className={`flex flex-col w-full divide-y divide-purple-400  shadow-shadow-dark max-h-96   border-4 rounded-xl border-solid border-light_purple mt-10  bg-white   ${style.scroll_area}`}
       >
         {dummyData.map(data => {
           return <Question key={data.name} {...data} />;
