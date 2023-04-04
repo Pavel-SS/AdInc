@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useRoutes } from 'react-router-dom';
+import { useRoutes, Navigate } from 'react-router-dom';
 
 import './App.scss';
 import { AdvertisingAccounts } from './pages/advertising-accounts/advertising-accounts';
@@ -18,7 +18,8 @@ const App = () => {
       element: <Main />,
       children: [
         // { path: '/', element: <Home /> },
-        { path: '/', element: <SignIn /> },
+        { path: '/', element: <Navigate to="/signin" /> },
+        { path: '/signin', element: <SignIn /> },
         { path: 'signup', element: <SignUp /> },
         { path: 'tariffs', element: <Tariff /> },
         { path: 'tariff-start', element: <TariffStart /> },
