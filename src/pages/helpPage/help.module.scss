@@ -15,3 +15,19 @@
   max-height: 300px;
   margin-bottom: 2rem;
 }
+
+.scroll_area {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 25px;
+  }
+
+
+  &::-webkit-scrollbar-thumb {
+  border: 8px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 12px;
+  background-color: rgb(42, 45, 52,0.3);
+  }
+}

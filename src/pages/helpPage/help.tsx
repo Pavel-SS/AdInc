@@ -54,7 +54,9 @@ export const Help = () => {
       >
         Оставить Заявку
       </button>
-      <div className="divide-y divide-purple-400 border-4 rounded-xl border-solid border-light_purple bg-white shadow-shadow-dark max-h-96  overflow-y-scroll mt-10">
+      <div
+        className={`divide-y divide-purple-400  shadow-shadow-dark max-h-96   border-4 rounded-xl border-solid border-light_purple mt-10  bg-white   ${style.scroll_area}`}
+      >
         {dummyData.map(data => {
           return <Question key={data.name} {...data} />;
         })}
